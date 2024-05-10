@@ -1,0 +1,48 @@
+body.contribution {
+    form {
+        border: 1px dashed $color__hr;
+        border-radius: 20px 0;
+        max-width: 650px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 25px;
+        padding: 20px 25px;
+
+        .inputs {
+            width: 100%;
+        }
+
+        fieldset {
+            margin-bottom: 0;
+        }
+
+        fieldset,
+        .field {
+            border: none;
+            padding: 0;
+        }
+    }
+
+    #contribution-type-form {
+        margin-top: 1rem;
+        width: 100%;
+
+        .inputs {
+            width: 100%;
+        }
+
+        .field {
+            margin-bottom: 1rem;
+        }
+    }
+
+    #contribution-confirm-submit {
+        p {
+            margin-bottom: 0;
+        }
+    }
+
+    #form-submit {
+        margin-top: 1rem;
+    }
+}

@@ -1,0 +1,50 @@
+/*
+Theme Name: Lively
+Theme URI: https://github.com/omeka/theme-lively
+Author: Omeka Team
+Author URI: https://omeka.org/
+Description: An Omeka Classic Theme based on modular styling and mobile first approach, with a modern and accessible UX/UI.
+Version: 1.0.0
+Omeka Version Constraint: ^3.0.0
+Requires PHP: 7.4
+License: GNU General Public License v2 or later
+License URI: LICENSE
+Text Domain: lively
+*/
+
+/*--------------------------------------------------------------
+# Variables and mixins
+--------------------------------------------------------------*/
+@import "abstracts/abstracts";
+
+/*--------------------------------------------------------------
+# Generic
+--------------------------------------------------------------*/
+
+/* Normalize
+--------------------------------------------- */
+@import "generic/normalize";
+
+/* Box sizing
+--------------------------------------------- */
+@import "generic/box-sizing";
+
+/*--------------------------------------------------------------
+# Base
+--------------------------------------------------------------*/
+@import "base/base";
+
+/*--------------------------------------------------------------
+# Components
+--------------------------------------------------------------*/
+@import "components/components";
+
+/*--------------------------------------------------------------
+# Utilities
+--------------------------------------------------------------*/
+@import "utilities/utilities";
+
+/*--------------------------------------------------------------
+# Views
+--------------------------------------------------------------*/
+@import "views/views";

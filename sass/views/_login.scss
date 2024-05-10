@@ -1,0 +1,39 @@
+body.login {
+    form {
+        border: 1px dashed $color__hr;
+        border-radius: 20px 0;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 25px;
+        padding: 20px 25px;
+
+        .inputs {
+            width: 100%;
+        }
+
+        fieldset {
+            margin-bottom: 0;
+        }
+
+        .field {
+            margin-bottom: 1rem;
+        }
+
+        .field:last-child {
+            display: flex;
+
+            .inputs {
+                order: -1;
+                width: auto;
+            }
+        }
+
+        fieldset,
+        .field {
+            flex: 1 1 100%;
+            border: none;
+            padding: 0;
+        }
+    }
+}

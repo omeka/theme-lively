@@ -1,0 +1,30 @@
+body.register {
+    form {
+        border: 1px dashed $color__hr;
+        border-radius: 20px 0;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 25px;
+        padding: 20px 25px;
+
+        .inputs {
+            margin-left: 0 !important;
+            width: 100% !important;
+
+            p {
+                margin-bottom: 0.3rem;
+            }
+        }
+
+        fieldset {
+            margin-bottom: 0;
+        }
+
+        fieldset,
+        .field {
+            border: none;
+            padding: 0;
+        }
+    }
+}
