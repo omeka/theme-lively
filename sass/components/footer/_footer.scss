@@ -208,7 +208,6 @@
             a {
                 color: $color__white;
                 text-transform: none;
-                text-decoration: none;
             
                 &:visited {
                     color: $color__white;
@@ -277,6 +276,7 @@
             border-radius: 50%;
             height: 54px;
             justify-content: center;
+            text-decoration: none;
             width: 54px;
 
             &:hover {
@@ -309,7 +309,6 @@
 
         a {
             color: $color__white;
-            text-decoration: none;
 
             &:hover {
                 text-decoration: underline;
@@ -320,5 +319,10 @@
     &__links {
         display: flex;
         gap: 40px;
+    }
+
+    a {
+        color: $color__white;
+        text-decoration: underline;
     }
 }
