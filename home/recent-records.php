@@ -8,7 +8,7 @@ $default_recent_types = ['item', 'collection', 'exhibit'];
 for ($i=0; $i < 3; $i++) {
     $recent_type = get_theme_option('homepage_recent_type_' . ($i+1)) ?? $default_recent_types[$i];
 
-    if ($recent_type !== 'none') {
+    if ($recent_type !== 'none' && !($recent_type === 'exhibit' && !plugin_is_active('ExhibitBuilder'))) {
         $recent_title = get_theme_option('homepage_recent_title_' . ($i+1)) ?? 'Recently Added ' . ucfirst($default_recent_types[$i]) . 's';
         $recent_records_count = get_theme_option('homepage_recent_records_count_' . ($i+1));
 
