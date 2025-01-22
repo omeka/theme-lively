@@ -5,8 +5,8 @@
             <a href="."
                 id="menu-backer"
                 class="menu-backer is-empty"
-                aria-label="<?php $this->translate( 'Close Menu' ); ?>"
-                title="<?php $this->translate('Close Menu'); ?>"
+                aria-label="<?php echo $this->translate( 'Close Menu' ); ?>"
+                title="<?php echo $this->translate('Close Menu'); ?>"
             >
                 <?php $this->translate('Close Menu'); ?>
             </a>
