@@ -6,6 +6,17 @@
     flex-direction: column;
     font-size: 0.875rem;
 
+    h2 {
+        font-size: 1rem; //18px
+        font-weight: 700;
+        line-height: 1.2;
+        margin-bottom: 1rem;
+
+        @media (min-width: $md) {
+            font-size: 1.125rem; //30px
+        }
+    }
+
     &.has-contact-info {
         margin-top: 3rem;
     }
@@ -30,7 +41,7 @@
                 justify-content: space-around;
             }
 
-            h6,
+            h2,
             a {
                 color: $color__secondary;
                 text-decoration: none;

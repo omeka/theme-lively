@@ -62,7 +62,7 @@ foreach ( $socialNetworks as $social_network ) {
             
                 <div class="main-footer__col2">
                     <?php if ( $footerMenuTitle ) : ?>
-                        <h5 class="main-footer__heading"><?php echo $footerMenuTitle; ?></h5>
+                        <h2 class="main-footer__heading"><?php echo $footerMenuTitle; ?></h5>
                     <?php endif; ?>
 
                     <?php echo public_nav_main(); ?>
@@ -75,7 +75,7 @@ foreach ( $socialNetworks as $social_network ) {
 
                 <div class="main-footer__col3">
                     <?php if ( $footerContentTitle ) : ?>
-                        <h5 class="main-footer__heading"><?php echo $footerContentTitle; ?></h5>
+                        <h2 class="main-footer__heading"><?php echo $footerContentTitle; ?></h5>
                     <?php endif; ?>
 
                     <?php if ( $footerContent ) : ?>
