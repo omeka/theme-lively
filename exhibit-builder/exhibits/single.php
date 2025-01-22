@@ -21,7 +21,7 @@ if ($primary) {
     <!-- Thumbnail -->
     <?php if ($exhibitImage) : ?>
         <div class="resource__thumbnail">
-            <?php echo exhibit_builder_link_to_exhibit($exhibit, $exhibitImage, array('class' => 'thumbnail')); ?>
+            <?php echo exhibit_builder_link_to_exhibit($exhibit, $exhibitImage, array('class' => 'thumbnail', 'aria-label' => metadata($exhibit, 'title'))); ?>
         </div>
     <?php endif; ?>
 

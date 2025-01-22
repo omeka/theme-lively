@@ -22,7 +22,7 @@ if ($primary) {
     <!-- Thumbnail -->
     <?php if ($primaryMedia) : ?>
         <div class="resource__thumbnail">
-            <?php echo link_to($item, 'show', $primaryMedia, array('class' => 'thumbnail')); ?>
+            <?php echo link_to($item, 'show', $primaryMedia, array('class' => 'thumbnail', 'aria-label' => metadata($item, 'display_title'))); ?>
         </div>
     <?php endif; ?>
 

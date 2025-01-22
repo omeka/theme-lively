@@ -7,7 +7,7 @@ $isGrid = $isGrid ?? false;
 $excludeTag = $excludeTag ?? '';
 $primary = $primary ?? false;
 $collectionImage = record_image($collection, 'fullsize');
-$title = metadata($collection, 'display_title');
+$title = metadata($collection, 'rich_title');
 $description = metadata($collection, array('Dublin Core', 'Description'));
 $contributor = $collection->hasContributor() ? metadata($collection, array('Dublin Core', 'Contributor'), array('all' => true, 'delimiter' => ', ')) : '';
 $truncateDesc = get_theme_option('truncate_body_property') ?? 'ellipsis';
@@ -23,7 +23,7 @@ if ($primary) {
     <!-- Thumbnail -->
     <?php if ($collectionImage) : ?>
         <div class="resource__thumbnail">
-            <?php echo link_to($collection, 'show', $collectionImage, array('class' => 'thumbnail')); ?>
+            <?php echo link_to($collection, 'show', $collectionImage, array('class' => 'thumbnail', 'aria-label' => metadata($collection, 'display_title'))); ?>
         </div>
     <?php endif; ?>
 
