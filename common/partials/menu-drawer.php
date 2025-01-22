@@ -1,4 +1,4 @@
-<nav id="menu-drawer" class="menu-drawer" style="display: none;">
+<nav id="menu-drawer" class="menu-drawer" style="display: none;" aria-label="<?php echo __('Mobile navigation'); ?>">
     <div class="wrap">
 
         <div class="navigation-controls">

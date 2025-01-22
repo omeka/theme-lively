@@ -15,7 +15,7 @@ echo head(array('title' => $pageTitle, 'bodyclass' => 'items browse'));
 
 <h1><?php echo $pageTitle; ?> <?php echo __('(%s total)', $total_results); ?></h1>
 
-<nav class="items-nav navigation secondary-nav">
+<nav class="items-nav navigation secondary-nav" aria-label="<?php echo __('Item navigation'); ?>">
     <?php echo public_nav_items(); ?>
     <?php echo item_search_filters(); ?>
 </nav>

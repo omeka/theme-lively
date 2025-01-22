@@ -17,7 +17,7 @@ echo head(array('title' => $title, 'bodyclass' => 'exhibits browse'));
 
 <?php if (count($exhibits) > 0): ?>
 
-    <nav class="navigation secondary-nav">
+    <nav class="navigation secondary-nav" aria-label="<?php echo __('Exhibit navigation'); ?>">
         <?php echo nav(array(
             array(
                 'label' => __('Browse All'),

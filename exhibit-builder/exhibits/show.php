@@ -17,7 +17,7 @@ $nextLink = exhibit_builder_link_to_next_page($nextText);
 </div>
 
 <?php if ($prevLink || $nextLink) : ?>
-    <nav>
+    <nav aria-label="<?php echo __('Previous and Next Pages'); ?>">
         <ul class="site-page-pagination">
             <?php if ($prevLink) : ?>
                 <li id="previous-item" class="site-page-pagination-button previous"><?php echo $prevLink; ?></li>

@@ -7,7 +7,7 @@ echo head(array('title' => $title, 'bodyclass' => 'map browse'));
 
 <h1><?php echo $title; ?></h1>
 
-<nav class="items-nav navigation secondary-nav">
+<nav class="items-nav navigation secondary-nav" aria-label="<?php echo __('Item navigation'); ?>">
     <?php echo public_nav_items(); ?>
     <?php echo item_search_filters(); ?>
 </nav>

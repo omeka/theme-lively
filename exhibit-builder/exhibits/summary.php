@@ -34,7 +34,7 @@ echo head(array('title' => $exhibitTitle, 'bodyclass'=>'exhibits summary'));
             <?php endif; ?>
             
             <?php if ($pageTree) : ?>
-                <nav id="element-set exhibit-pages">
+                <nav id="element-set exhibit-pages" aria-label="<?php echo __('Exhibit Table of Contents'); ?>">
                     <h2><?php echo __('Exhibit Pages'); ?></h2>
                     <?php echo $pageTree; ?>
                 </nav>

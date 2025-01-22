@@ -12,7 +12,7 @@
             <?php echo link_to_home_page($site_logo); ?>
         </div>
 
-        <nav class="main-navigation">
+        <nav class="main-navigation" aria-label="<?php echo __('Navigation'); ?>">
             <div class="main-navigation__container">
                 <?php echo public_nav_main(); ?>
             </div>

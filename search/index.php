@@ -8,7 +8,7 @@ $filter = new Zend_Filter_Word_CamelCaseToDash;
 
 <h1><?php echo $pageTitle; ?></h1>
 
-<nav class="navigation secondary-nav">
+<nav class="navigation secondary-nav" aria-label="<?php echo __('Item navigation'); ?>">
     <?php echo search_filters(); ?>
 </nav>
 

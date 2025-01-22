@@ -64,7 +64,7 @@ echo head(array('title' => $title, 'bodyclass' => 'items show'));
     </div>
 </div>
 
-<nav>
+<nav aria-label="<?php echo __('Previous and Next Items'); ?>">
 <ul class="site-page-pagination">
     <li id="previous-item" class="site-page-pagination-button previous"><?php echo link_to_previous_item_show(); ?></li>
     <li id="next-item" class="site-page-pagination-button next"><?php echo link_to_next_item_show(); ?></li>

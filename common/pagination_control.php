@@ -1,4 +1,4 @@
-<nav class="pagination" role="navigation">
+<nav class="pagination" aria-label="<?php echo __('Pagination'); ?>">
     <?php if ($this->totalItemCount) : ?>
 
         <?php

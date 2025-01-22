@@ -5,7 +5,7 @@ echo head(array('title' => $pageTitle, 'bodyclass' => 'exhibits tags'));
 
 <h1><?php echo $pageTitle; ?></h1>
 
-<nav class="navigation exhibits-nav secondary-nav">
+<nav class="navigation exhibits-nav secondary-nav" aria-label="<?php echo __('Exhibit navigation'); ?>">
     <?php echo nav(array(
             array(
                 'label' => __('Browse All'),
