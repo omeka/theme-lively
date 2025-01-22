@@ -36,7 +36,15 @@ if (is_array($contactInfo['position'])
 
     <script type="text/javascript">
         jQuery(document).ready(function(){
-            Omeka.skipNav();
+            jQuery(document).on('click', '#skipnav', function() {
+                jQuery("#main-content").attr("tabindex", -1).focus();
+            });
+
+            jQuery(document).on('keyup', '#main-content', function(e) {
+                if (e.keyCode == 'Tab') {
+                    jQuery("#main-content").removeAttr("tabindex");
+                }
+            })
         });
     </script>
 

@@ -1,4 +1,5 @@
 <header class="main-header">
+    <a id="skipnav" href="#main-content"><?php echo __('Skip to main content'); ?></a>
 
     <?php echo $this->partial('common/partials/top-header.php'); ?>
 
