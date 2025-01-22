@@ -43,18 +43,18 @@ foreach ($featured_record_types as $featured_record_type) {
         <div class="featured-records">
             <?php if ($total_records[$featured_record_types[0]]) : ?>
                 <!-- Featured Records - Primary -->
-                <ul class="featured featured--primary">
+                <div class="featured featured--primary">
                     <?php if (($featured_record_types[0] == 'exhibit') && !plugin_is_active('ExhibitBuilder')) : ?>
                         <?php echo __('Exhibit Builder is not installed.'); ?>
                     <?php elseif ($record_ids[$featured_record_types[0]]) : ?>
                         <?php echo lively_featured_record_html($featured_record_types[0], $record_ids[$featured_record_types[0]][0], true); ?>
                         <?php array_shift($record_ids[$featured_record_types[0]]); ?>
                     <?php endif; ?>
-                </ul>
+                </div>
             <?php endif; ?>
 
             <!-- Featured Records - Secondary -->
-            <ul class="featured featured--secondary">
+            <div class="featured featured--secondary">
 
                 <?php if ($total_records[$featured_record_types[1]]) : ?>
                     <!-- Featured Record -->
@@ -75,7 +75,7 @@ foreach ($featured_record_types as $featured_record_type) {
                     <?php endif; ?>
                 <?php endif; ?>
 
-            </ul>
+            </div>
         </div>
     
     </section>
