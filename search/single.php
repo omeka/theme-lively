@@ -20,7 +20,11 @@ $class[] = strtolower($filter->filter($recordType));
     <!-- Thumbnail -->
     <?php if ($recordImage) : ?>
         <div class="resource__thumbnail">
+            <?php if ($recordType !== 'Exhibit'): ?>
             <?php echo link_to($record, 'show', $recordImage, array('class' => 'thumbnail', 'aria-label' => metadata($record, 'display_title'))); ?>
+            <?php else: ?>
+            <?php echo link_to($record, 'show', $recordImage, array('class' => 'thumbnail', 'aria-label' => metadata($record, 'title'))); ?>
+            <?php endif; ?>
         </div>
     <?php endif; ?>
 
