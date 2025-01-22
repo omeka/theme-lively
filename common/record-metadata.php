@@ -1,8 +1,8 @@
 <?php foreach ($elementsForDisplay as $setName => $setElements): ?>
+<?php if ($showElementSetHeadings): ?>
+<h2 class="element-set-heading"><?php echo html_escape(__($setName)); ?></h2>
+<?php endif; ?>
 <dl class="element-set">
-    <?php if ($showElementSetHeadings): ?>
-    <h2 class="element-set-heading"><?php echo html_escape(__($setName)); ?></h2>
-    <?php endif; ?>
     <?php foreach ($setElements as $elementName => $elementInfo): ?>
     <div id="<?php echo text_to_id(html_escape("$setName $elementName")); ?>" class="element property">
         <dt><?php echo html_escape(__($elementName)); ?></dt>
