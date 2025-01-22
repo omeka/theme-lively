@@ -31,11 +31,11 @@ $totalItems = metadata('collection', 'total_items');
                 <h2><?php echo __('Collection Items'); ?></h2>
 
                 <?php if ($totalItems > 0) : ?>
-                    <ul class="resources resource-list">
+                    <div class="resources resource-list">
                         <?php foreach (loop('items') as $item): ?>
                             <?php echo $this->partial('items/single.php', array('item' => $item, 'isGrid' => false)); ?>
                         <?php endforeach; ?>
-                    </ul>
+                    </div>
                     <?php echo link_to_items_browse(__(plural('View item', 'View all %s items', $totalItems), $totalItems), array('collection' => metadata('collection', 'id')), array('class' => 'view-items-link')); ?>
                 <?php else: ?>
                     <p><?php echo __("There are currently no items within this collection."); ?></p>
