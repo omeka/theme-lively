@@ -1,4 +1,7 @@
 <?php
+queue_js_file('lightbox.min', 'javascripts/vendor');
+queue_css_file('lightbox.min');
+
 $decoration      = get_theme_option('image_decoration');
 $decorationClass = '';
 
@@ -28,7 +31,7 @@ echo head(array('title' => $title, 'bodyclass' => 'items show'));
             <?php if (metadata('item', 'has files')) : ?>
             <div id="itemfiles" class="element">
                 <h2><?php echo __('Files'); ?></h2>
-                <div class="element-text files-container"><?php echo files_for_item(); ?></div>
+                <div class="element-text files-container"><?php echo item_image_gallery(array('link'=>array('data-lightbox'=>'lightbox'))); ?></div>
             </div>
             <?php endif; ?>
 
