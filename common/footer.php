@@ -21,6 +21,7 @@ if (is_array($contactInfo['position'])
     </div><!-- end content -->
 
     <footer class="<?php echo implode(' ', $classes); ?>">
+        <?php fire_plugin_hook('public_footer', array('view' => $this)); ?>
 
         <?php
             if ($hasContactInfo) {

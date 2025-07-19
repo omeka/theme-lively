@@ -1,4 +1,5 @@
 <header class="main-header">
+    <?php fire_plugin_hook('public_body', array('view'=>$this)); ?>
 
     <?php echo $this->partial('common/partials/top-header.php'); ?>
 
