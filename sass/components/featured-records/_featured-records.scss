@@ -11,10 +11,12 @@
 
         .resource {
             display: flex;
-            border: 1px solid $color__hr;
+            border: 1px dashed $color__hr;
+            border-radius: 20px 0;
             flex: 1;
             gap: 30px;
             margin-bottom: 0;
+            overflow: hidden;
             padding: 30px;
 
             @media(min-width: $sm) {
@@ -63,6 +65,7 @@
                 background-repeat: no-repeat;
                 background-position: center;
                 background-size: cover;
+                border: none;
                 color: $color__white;
                 flex-wrap: wrap;
                 justify-content: center;

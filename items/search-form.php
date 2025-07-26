@@ -56,7 +56,6 @@ $formAttributes['method'] = 'GET';
                                 array(
                                     'id' => null,
                                     'class' => 'joiner',
-                                    'aria-labelledby' => 'search-narrow-by-fields-label search-row-' . $i . ' search-narrow-by-fields-joiner',
                                 ),
                                 array(
                                     'and' => __('AND'),
@@ -71,7 +70,6 @@ $formAttributes['method'] = 'GET';
                                 "advanced[$i][element_id]",
                                 @$rows['element_id'],
                                 array(
-                                    'aria-labelledby' => 'search-narrow-by-fields-label search-row-' . $i . ' search-narrow-by-fields-property',
                                     'id' => null,
                                 ),
                                 get_table_options(
@@ -88,7 +86,6 @@ $formAttributes['method'] = 'GET';
                                 "advanced[$i][type]",
                                 @$rows['type'],
                                 array(
-                                    'aria-labelledby' => 'search-narrow-by-fields-label search-row-' . $i . ' search-narrow-by-fields-type',
                                     'id' => null,
                                 ),
                                 label_table_options(
@@ -111,13 +108,12 @@ $formAttributes['method'] = 'GET';
                                 @$rows['terms'],
                                 array(
                                     'size' => '20',
-                                    'aria-labelledby' => 'search-narrow-by-fields-label search-row-' . $i . ' search-narrow-by-fields-terms',
                                     'id' => null,
                                 )
                             );
                             ?>
                         </label>
-                        <button type="button" class="remove_search remove-value" disabled="disabled" style="display: none;" aria-labelledby="search-narrow-by-fields-label search-row-<?php echo $i; ?> search-narrow-by-fields-remove-field" title="<?php echo __('Remove field'); ?>"></button>
+                        <button type="button" class="remove_search remove-value" disabled="disabled" style="display: none;" title="<?php echo __('Remove field'); ?>"></button>
                     </div>
                 <?php endforeach; ?>
             </div>
@@ -245,7 +241,8 @@ $formAttributes['method'] = 'GET';
 </form>
 
 <?php echo js_tag('items-search'); ?>
-<script type="text/javascript">
+<?php echo js_tag('advanced-search'); ?>
+<script>
     jQuery(document).ready(function () {
         Omeka.Search.activateSearchButtons();
     });

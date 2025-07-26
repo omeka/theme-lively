@@ -31,7 +31,7 @@ if ($primary) {
         <?php echo lively_record_tags($item, '', $excludeTag); ?>
         <!-- Metadata -->
         <div class="resource__meta <?php echo ($isGrid) ? '' : 'media-object-section'; ?>">
-            <h2 class="resource__heading"><?php echo link_to($item, 'show', $title); ?></h2>
+            <h3 class="resource__heading"><?php echo link_to($item, 'show', $title); ?></h3>
             <?php if ($description) : ?>
                 <div class="description <?php echo $truncateDesc; ?>"><?php echo $description; ?></div>
             <?php endif; ?>

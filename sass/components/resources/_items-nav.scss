@@ -19,6 +19,7 @@
 
         .active a {
             @include primary-button;
+            border: 1px solid $color__buttons;
         }
 
         a {

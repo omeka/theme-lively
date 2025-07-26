@@ -48,14 +48,14 @@ foreach ($featured_record_types as $featured_record_type) {
         <div class="featured-records">
             <?php if ($record_ids[$featured_record_types[0]]) : ?>
                 <!-- Featured Records - Primary -->
-                <ul class="featured featured--primary">
+                <div class="featured featured--primary">
                     <?php echo lively_featured_record_html($featured_record_types[0], $record_ids[$featured_record_types[0]][0], true); ?>
                     <?php array_shift($record_ids[$featured_record_types[0]]); ?>
-                </ul>
+                </div>
             <?php endif; ?>
 
             <!-- Featured Records - Secondary -->
-            <ul class="featured featured--secondary">
+            <div class="featured featured--secondary">
 
                 <?php if ($record_ids[$featured_record_types[1]]) : ?>
                     <!-- Featured Record -->
@@ -68,7 +68,7 @@ foreach ($featured_record_types as $featured_record_type) {
                     <?php echo lively_featured_record_html($featured_record_types[2], $record_ids[$featured_record_types[2]][0]); ?>
                 <?php endif; ?>
 
-            </ul>
+            </div>
         </div>
 
     </section>

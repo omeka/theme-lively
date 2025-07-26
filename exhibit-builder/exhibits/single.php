@@ -30,7 +30,7 @@ if ($primary) {
         <?php echo lively_record_tags($exhibit, '', $excludeTag); ?>
         <!-- Metadata -->
         <div class="resource__meta <?php echo ($isGrid) ? '' : 'media-object-section'; ?>">
-            <h2 class="resource__heading"><?php echo exhibit_builder_link_to_exhibit($exhibit); ?></h2>
+            <h3 class="resource__heading"><?php echo exhibit_builder_link_to_exhibit($exhibit); ?></h3>
             <?php if ($description) : ?>
                 <div class="description <?php echo $truncateDesc; ?>"><?php echo $description; ?></div>
             <?php endif; ?>

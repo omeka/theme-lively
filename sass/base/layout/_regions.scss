@@ -10,12 +10,7 @@
     }
 
     .main-region {
-        order: -1;
         width: 100%;
-
-        @media (min-width: $md) {
-            order: initial;
-        }
     }
 
     .sidebar-region {

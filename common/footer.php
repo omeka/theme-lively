@@ -33,7 +33,7 @@ if (is_array($contactInfo['position'])
 
     </footer>
 
-    <script type="text/javascript">
+    <script>
         jQuery(document).ready(function(){
             Omeka.skipNav();
         });

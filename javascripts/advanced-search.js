@@ -1,37 +1,25 @@
-const advancedSearchScripts = () => {
-    const propertyQueries = document.getElementById('property-queries');
-    const addRowBtn = propertyQueries.querySelector('.add-value');
-    let subFields;
-    let removeRowBtns;
+document.addEventListener("DOMContentLoaded", function() {
+    const addRowBtn = document.querySelector('.add-value');
 
-    const placeLabels = () => {
+    addRowBtn.addEventListener('click', onAddRowClick);
+
+    function onAddRowClick(e) {
+        const inputs = e.target.parentElement.querySelector('.inputs');
+
+        if (!inputs) {
+            return;
+        }
+
         setTimeout(() => {
-            subFields = propertyQueries.querySelectorAll('.sub-field');
-            subFields.forEach((subField) => {
-                const prev = subField.previousElementSibling;
-                if(prev.tagName == 'LABEL') {
-                    prev.style.left = subField.offsetLeft + 'px';
-                    prev.style.top = (subField.offsetTop - 19) + 'px';
-                    prev.style.opacity = 1;
+            const entries = document.querySelectorAll('.inputs .search-entry');
+            const lastInput = entries[entries.length - 1];
+
+            if (lastInput) {
+                const focusable = lastInput.querySelector('input, select, textarea, [tabindex]:not([tabindex="-1"])');
+                if (focusable) {
+                    focusable.focus();
                 }
-            });
-
-            removeRowBtns = propertyQueries.querySelectorAll('.remove-value');
-            removeRowBtns.forEach((removeRowBtn) => {
-                removeRowBtn.addEventListener('click', placeLabels);
-            });
-        }, 10);
+            }
+        }, 100);
     }
-
-    placeLabels();
-
-    addRowBtn.addEventListener('click', placeLabels);
-
-    window.onresize = placeLabels;
-}
-
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', advancedSearchScripts);
-} else {
-    advancedSearchScripts();
-}
+});

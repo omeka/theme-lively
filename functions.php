@@ -195,7 +195,7 @@ function lively_get_unique_color_from_id($n, $style = 'pastel')
         break;
         
     case 'pastel':
-        $color = "hsl({$n}, 100%, 75.5%)";
+        $color = "hsl({$n}, 100%, 50%)";
         break;
     }
 

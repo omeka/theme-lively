@@ -29,7 +29,7 @@ $class[] = strtolower($filter->filter($recordType));
         <?php echo lively_record_tags($record); ?>
         <!-- Metadata -->
         <div class="resource__meta <?php echo ($isGrid) ? '' : 'media-object-section'; ?>">
-            <h2 class="resource__heading"><?php echo link_to($record, 'show', $title); ?></h2>
+            <h3 class="resource__heading"><?php echo link_to($record, 'show', $title); ?></h3>
         </div>
     </div>
 </li>
