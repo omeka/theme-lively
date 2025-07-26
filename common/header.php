@@ -72,7 +72,7 @@
 </head>
 <?php echo body_tag(array('id' => @$bodyid, 'class' => @$bodyclass)); ?>
     
-    <a id="skipnav" href="#content"><?php echo __('Skip to main content'); ?></a>
+    <a id="skipnav" href="#main-content"><?php echo __('Skip to main content'); ?></a>
 
     <?php echo $this->partial('common/partials/main-header.php'); ?>
     <?php echo $this->partial('common/partials/banner.php'); ?>

@@ -64,6 +64,7 @@
     
     &:focus {
         outline: 5px auto Highlight;
+        color: $color__white;
     }
     
     &:disabled,

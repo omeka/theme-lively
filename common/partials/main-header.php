@@ -17,12 +17,19 @@
             <div class="main-navigation__container">
                 <?php echo public_nav_main(); ?>
             </div>
-            <div class="main-navigation__toggle">
+            <div class="main-navigation__toggle"
+                tabindex="0"
+                role="button"
+                aria-expanded="false"
+                aria-controls="menu-drawer"
+                aria-labelledby="menu-backer">
                 <span></span>
                 <span></span>
                 <span></span>
             </div>
         </nav>
+
+        <?php echo $this->partial('common/partials/menu-drawer.php'); ?>
 
         <?php echo $this->partial('common/partials/main-header-search.php'); ?>
 

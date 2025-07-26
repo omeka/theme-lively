@@ -33,8 +33,6 @@ if (is_array($contactInfo['position'])
 
     </footer>
 
-    <?php echo $this->partial('common/partials/menu-drawer.php'); ?>
-
     <script type="text/javascript">
         jQuery(document).ready(function(){
             Omeka.skipNav();
