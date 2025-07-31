@@ -25,10 +25,6 @@
 --------------------------------------------- */
 @import "exhibit-blocks/exhibit-blocks";
 
-/* Local Contexts
---------------------------------------------- */
-@import "local-contexts/local-contexts";
-
 /* Mapping
 --------------------------------------------- */
 @import "mapping/mapping-map";
@@ -44,6 +40,10 @@
 /* Pagination
 --------------------------------------------- */
 @import "pagination/pagination";
+
+/* Plugins
+--------------------------------------------- */
+@import "plugins/plugins";
 
 /* Featured
 --------------------------------------------- */

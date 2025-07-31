@@ -31,7 +31,13 @@ echo head(array('title' => $title, 'bodyclass' => 'items show'));
             <?php if (metadata('item', 'has files')) : ?>
             <div id="itemfiles" class="element">
                 <h2><?php echo __('Files'); ?></h2>
-                <div class="element-text files-container"><?php echo item_image_gallery(array('link'=>array('data-lightbox'=>'lightbox'))); ?></div>
+                <div class="element-text files-container">
+	                <?php if (get_option('link_to_file_metadata')) : ?>
+	                	<?php echo files_for_item(); ?>
+					<?php else : ?>
+						<?php echo item_image_gallery(array('link'=>array('data-lightbox'=>'lightbox'))); ?>
+					<?php endif; ?>
+				</div>
             </div>
             <?php endif; ?>
 

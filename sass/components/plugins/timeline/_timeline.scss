@@ -1,0 +1,42 @@
+.tl-timeline {
+    .tl-slidenav-previous,
+    .tl-slidenav-next {
+        &:hover {
+            background-color: transparent;
+
+            .tl-slidenav-title {
+                opacity: 1;
+            }
+        }
+
+        .tl-slidenav-title {
+            opacity: 0.7;
+        }
+    }
+
+    .tl-text h2.tl-headline-title,
+    .tl-text h2.tl-headline,
+    .tl-text h2.tl-headline a {
+        font-family: $font__headings;
+        font-size: 2rem;
+        font-weight: 800;
+        color: $color__black;
+        line-height: 1.2;
+        text-transform: none;
+    }
+
+    .tl-text h2.tl-headline-title {
+        font-size: $font__h2-base-size;
+    }
+
+    .tl-text p,
+    .tl-text .tl-headline-date,
+    .tl-text h3.tl-headline-date {
+        color: $color__main-text;
+    }
+
+    p a,
+    a {
+        color: $color__link;
+    }
+}
