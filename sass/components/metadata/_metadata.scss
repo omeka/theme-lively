@@ -101,4 +101,14 @@
         flex-wrap: wrap;
         gap: 10px;
     }
+
+    .files-container .item-file,
+    #item-images img {
+        max-width: 150px;
+    }
+
+    .files-container .item-file.text-xml {
+        max-width: none;
+        width: 100%;
+    }
 }

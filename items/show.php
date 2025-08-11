@@ -32,12 +32,39 @@ echo head(array('title' => $title, 'bodyclass' => 'items show'));
             <div id="itemfiles" class="element">
                 <h2><?php echo __('Files'); ?></h2>
                 <div class="element-text files-container">
-	                <?php if (get_option('link_to_file_metadata')) : ?>
-	                	<?php echo files_for_item(); ?>
-					<?php else : ?>
-						<?php echo item_image_gallery(array('link'=>array('data-lightbox'=>'lightbox'))); ?>
-					<?php endif; ?>
-				</div>
+                    <?php if (get_option('link_to_file_metadata')) : ?>
+                        <?php echo files_for_item(); ?>
+                    <?php else : ?>
+                        <?php
+                        $imageFiles = array();
+                        $otherFiles = array();
+
+                        foreach ($item->Files as $file) {
+                            if (strpos($file->mime_type, 'image/') === 0) {
+                                $imageFiles[] = $file;
+                            } else {
+                                $otherFiles[] = $file;
+                            }
+                        }
+
+                        $originalFiles = $item->Files;
+
+                        // Render images with gallery
+                        if (!empty($imageFiles)) {
+                            $item->Files = $imageFiles;
+                            echo item_image_gallery(array('link'=>array('data-lightbox'=>'lightbox')));
+                            $item->Files = $originalFiles;
+                        }
+
+                        // Render other files using files_for_item()
+                        if (!empty($otherFiles)) {
+                            $item->Files = $otherFiles;
+                            echo files_for_item();
+                            $item->Files = $originalFiles;
+                        }
+                        ?>
+                    <?php endif; ?>
+                </div>
             </div>
             <?php endif; ?>
 
