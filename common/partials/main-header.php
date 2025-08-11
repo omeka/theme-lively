@@ -17,16 +17,16 @@
             <div class="main-navigation__container">
                 <?php echo public_nav_main(); ?>
             </div>
-            <div class="main-navigation__toggle"
-                tabindex="0"
-                role="button"
+            <button
+                class="main-navigation__toggle"
                 aria-expanded="false"
                 aria-controls="menu-drawer"
-                aria-labelledby="menu-backer">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+            >
+                <span class="sr-only">Open menu</span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </button>
         </nav>
 
         <?php echo $this->partial('common/partials/menu-drawer.php'); ?>
