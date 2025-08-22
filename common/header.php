@@ -77,5 +77,5 @@
     <?php echo $this->partial('common/partials/main-header.php'); ?>
     <?php echo $this->partial('common/partials/banner.php'); ?>
 
-    <div id="main-content" class="container" role="main">
+    <div id="main-content" class="container" role="main" tabindex="-1">
     <?php fire_plugin_hook('public_content_top', array('view'=>$this)); ?>

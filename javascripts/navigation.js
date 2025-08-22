@@ -172,10 +172,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
 			item.classList.add( 'expanded' );
 
-			mmTargets.push( this );
-			slideMenus( this );
-			scrollMenuToTop();
-
 			mmDrawer.querySelectorAll( '.in-viewport' ).forEach( item => {
 				item.classList.remove( 'in-viewport' );
 			});
@@ -195,6 +191,10 @@ document.addEventListener("DOMContentLoaded", function() {
 				cleanupTrap = null;
 			}
 			cleanupTrap = trapFocus(mmHeader);
+
+			mmTargets.push( this );
+			slideMenus( this );
+			scrollMenuToTop();
 
 			event.stopPropagation();
 			event.preventDefault();
@@ -303,6 +303,8 @@ function setFocusableToElementsInViewPort() {
 		item.inert = false;
 		item.removeAttribute('aria-hidden');
 	} );
+
+	mmDrawer.querySelector( '.in-viewport > li:first-child > a' ).focus();
 }
 
 function closeMenuDrawer() {
