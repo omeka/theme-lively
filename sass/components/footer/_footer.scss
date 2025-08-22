@@ -30,7 +30,7 @@
                 justify-content: space-around;
             }
 
-            h6,
+            .contact_info,
             a {
                 color: $color__secondary;
                 text-decoration: none;
@@ -39,6 +39,10 @@
             .contact_info {
                 display: flex;
                 align-items: center;
+                font-size: $font__h6-base-size;
+                font-weight: 700;
+                line-height: 1.2;
+                margin-bottom: 1rem;
 
                 &::before {
                     @include font-awesome;

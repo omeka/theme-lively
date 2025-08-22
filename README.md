@@ -49,6 +49,7 @@ A custom logo (SVG, JPG, PNG)
 - Footer Copyright
 
 ### Homepage Settings
+- Homepage Title
 - Homepage Text
 - Featured Records Title
 - Main Featured Record Type
