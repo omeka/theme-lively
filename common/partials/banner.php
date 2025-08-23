@@ -28,7 +28,7 @@ $imageInlineStyles = "object-position: {$bannerHorizontalPosition} {$bannerVerti
 ?>
 
 <?php if ($bannerImage || $hasText) : ?>
-    <div class="<?php echo implode(' ', $class); ?>" style="<?php echo $bannerInlineStyles; ?>">
+    <div role="banner" class="<?php echo implode(' ', $class); ?>" style="<?php echo $bannerInlineStyles; ?>">
         <div class="container main-banner__container main-banner__container--<?php echo $bannerContentPosition; ?>">
             <?php if ( $bannerImage ) : ?>
                 <div class="main-banner__image-wrapper">
