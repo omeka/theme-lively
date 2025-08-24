@@ -6,8 +6,10 @@
 $isGrid = $isGrid ?? false;
 $excludeTag = $excludeTag ?? '';
 $primary = $primary ?? false;
-$primaryMedia = item_image('fullsize', array(), 0, $item);
 $title = metadata($item, 'rich_title', array('no_escape' => true));
+$imageFile = $item->getFile(0);
+$altText = $imageFile->alt_text ?: metadata($item, 'display_title');
+$primaryMedia = item_image('fullsize', ['alt' => $altText], 0, $item);
 $description = metadata($item, array('Dublin Core', 'Description'));
 $truncateDesc = get_theme_option('truncate_body_property') ?? 'ellipsis';
 $style = '';

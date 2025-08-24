@@ -8,8 +8,10 @@ $recordType = $searchText['record_type'];
 set_current_record($recordType, $record);
 
 $isGrid = $isGrid ?? false;
-$recordImage = record_image($recordType, 'square_thumbnail');
 $title = $searchText['title'] ? $searchText['title'] : '[Unknown]';
+$imageFile = $record->getFile();
+$altText = $imageFile->alt_text ?: $title;
+$recordImage = record_image($recordType, 'square_thumbnail', ['alt' => $altText]);
 
 $class = ['resource'];
 $class[] = ($isGrid) ? '' : 'media-object';

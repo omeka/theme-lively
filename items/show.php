@@ -10,6 +10,8 @@ if ($decoration) {
 }
 
 $title = metadata('item', 'display_title');
+$imageFile = $item->getFile(0);
+$altText = $imageFile->alt_text ?: $title;
 echo head(array('title' => $title, 'bodyclass' => 'items show'));
 ?>
 
@@ -19,7 +21,7 @@ echo head(array('title' => $title, 'bodyclass' => 'items show'));
 <div class="regions-container">
     <div class="sidebar-region sidebar-region--left">
         <div class="metadata <?php echo $decorationClass; ?>">
-            <?php echo record_image($item, 'fullsize');; ?>
+            <?php echo record_image($item, 'fullsize', ['alt' => $altText]);; ?>
         </div>
     </div>
 

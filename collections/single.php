@@ -6,8 +6,10 @@
 $isGrid = $isGrid ?? false;
 $excludeTag = $excludeTag ?? '';
 $primary = $primary ?? false;
-$collectionImage = record_image($collection, 'fullsize');
 $title = metadata($collection, 'display_title');
+$imageFile = $collection->getFile();
+$altText = $imageFile->alt_text ?: $title;
+$collectionImage = record_image($collection, 'fullsize', ['alt' => $altText]);
 $description = metadata($collection, array('Dublin Core', 'Description'));
 $contributor = $collection->hasContributor() ? metadata($collection, array('Dublin Core', 'Contributor'), array('all' => true, 'delimiter' => ', ')) : '';
 $truncateDesc = get_theme_option('truncate_body_property') ?? 'ellipsis';

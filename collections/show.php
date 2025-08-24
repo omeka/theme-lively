@@ -8,6 +8,10 @@ if ($decoration) {
 
 $collectionTitle = metadata('collection', 'display_title');
 $totalItems = metadata('collection', 'total_items');
+
+$title = metadata($collection, 'display_title');
+$imageFile = $collection->getFile();
+$altText = $imageFile->alt_text ?: $title;
 ?>
 
 <?php echo head(array('title' => $collectionTitle, 'bodyclass' => 'collections show')); ?>
@@ -18,7 +22,7 @@ $totalItems = metadata('collection', 'total_items');
 <div class="regions-container">
     <div class="sidebar-region sidebar-region--left">
         <div class="metadata <?php echo $decorationClass; ?>">
-            <?php echo record_image($collection, 'fullsize'); ?>
+            <?php echo record_image($collection, 'fullsize', ['alt' => $altText]); ?>
         </div>
     </div>
 
