@@ -8,7 +8,7 @@ $excludeTag = $excludeTag ?? '';
 $primary = $primary ?? false;
 $title = metadata($collection, 'display_title');
 $imageFile = $collection->getFile();
-$altText = $imageFile->alt_text ?: $title;
+$altText = ($imageFile && !empty($imageFile->alt_text)) ? $imageFile->alt_text : $title;
 $collectionImage = record_image($collection, 'fullsize', ['alt' => $altText]);
 $description = metadata($collection, array('Dublin Core', 'Description'));
 $contributor = $collection->hasContributor() ? metadata($collection, array('Dublin Core', 'Contributor'), array('all' => true, 'delimiter' => ', ')) : '';

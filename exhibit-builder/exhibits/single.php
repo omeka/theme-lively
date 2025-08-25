@@ -6,8 +6,9 @@
 $isGrid = $isGrid ?? false;
 $excludeTag = $excludeTag ?? '';
 $primary = $primary ?? false;
+$exhibitTitle = metadata($exhibit, 'title');
 $imageFile = $exhibit->getFile();
-$altText = $imageFile->alt_text ?: $exhibit->title;
+$altText = ($imageFile && !empty($imageFile->alt_text)) ? $imageFile->alt_text : $exhibitTitle;
 $exhibitImage = record_image($exhibit, 'fullsize', ['alt' => $altText]);
 $description = metadata($exhibit, 'description', array('no_escape' => true));
 $truncateDesc = get_theme_option('truncate_body_property') ?? 'ellipsis';

@@ -11,7 +11,7 @@ if ($decoration) {
 
 $title = metadata('item', 'display_title');
 $imageFile = $item->getFile(0);
-$altText = $imageFile->alt_text ?: $title;
+$altText = ($imageFile && !empty($imageFile->alt_text)) ? $imageFile->alt_text : $title;
 echo head(array('title' => $title, 'bodyclass' => 'items show'));
 ?>
 

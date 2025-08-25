@@ -11,7 +11,7 @@ $totalItems = metadata('collection', 'total_items');
 
 $title = metadata($collection, 'display_title');
 $imageFile = $collection->getFile();
-$altText = $imageFile->alt_text ?: $title;
+$altText = ($imageFile && !empty($imageFile->alt_text)) ? $imageFile->alt_text : $title;
 ?>
 
 <?php echo head(array('title' => $collectionTitle, 'bodyclass' => 'collections show')); ?>

@@ -4,7 +4,7 @@ $exhibitDescription = metadata('exhibit', 'description', array('no_escape' => tr
 $exhibitCredits = metadata('exhibit', 'credits');
 $pageTree = exhibit_builder_page_tree();
 $imageFile = $exhibit->getFile();
-$altText = $imageFile->alt_text ?: $exhibitTitle;
+$altText = ($imageFile && !empty($imageFile->alt_text)) ? $imageFile->alt_text : $exhibitTitle;
 
 echo head(array('title' => $exhibitTitle, 'bodyclass'=>'exhibits summary'));
 ?>

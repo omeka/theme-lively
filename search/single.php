@@ -10,7 +10,7 @@ set_current_record($recordType, $record);
 $isGrid = $isGrid ?? false;
 $title = $searchText['title'] ? $searchText['title'] : '[Unknown]';
 $imageFile = $record->getFile();
-$altText = $imageFile->alt_text ?: $title;
+$altText = ($imageFile && !empty($imageFile->alt_text)) ? $imageFile->alt_text : $title;
 $recordImage = record_image($recordType, 'square_thumbnail', ['alt' => $altText]);
 
 $class = ['resource'];
