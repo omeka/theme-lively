@@ -1,4 +1,4 @@
-<button class="o-icon-search main-search-button" aria-label="Search"></button>
+<button class="o-icon-search main-search-button <?php echo $class; ?>" aria-label="Search"></button>
 
 <div class="main-header-search">
     <?php echo search_form(array('form_attributes' => array('id' => 'search-form', 'role' => 'search'))); ?>

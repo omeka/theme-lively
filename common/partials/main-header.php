@@ -13,6 +13,8 @@
             <?php echo link_to_home_page($site_logo); ?>
         </div>
 
+	    <?php echo $this->partial('common/partials/main-header-search.php', array('class' => 'd-block d-xl-none')); ?>
+
         <nav class="main-navigation">
             <div class="main-navigation__container">
                 <?php echo public_nav_main(); ?>
@@ -31,7 +33,7 @@
 
         <?php echo $this->partial('common/partials/menu-drawer.php'); ?>
 
-        <?php echo $this->partial('common/partials/main-header-search.php'); ?>
+        <?php echo $this->partial('common/partials/main-header-search.php', array('class' => 'd-none d-xl-block')); ?>
 
     </div>
 

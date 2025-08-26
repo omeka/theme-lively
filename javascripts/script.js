@@ -4,8 +4,6 @@ const livelyScripts = () => {
     const mainHeader = document.querySelector('.main-header');
     const mainHeaderTopBar = document.querySelector('.main-header__top-bar');
     const mainHeaderMainBar = document.querySelector('.main-header__main-bar');
-    const mainNavigation = document.querySelector('.main-navigation');
-    const mainSearchButton = document.querySelector('.main-search-button');
     const mainHeaderSearch = document.querySelector('.main-header-search');
     const mainSearchInput = mainHeaderSearch.querySelector('#query');
     const mainBanner = document.querySelector('.main-banner');
@@ -13,6 +11,7 @@ const livelyScripts = () => {
     const mainBannerImgShape = document.querySelector('.main-banner__image-shape');
     const userBar = document.getElementById('admin-bar');
     const menuDrawer = document.getElementById('menu-drawer');
+    const menuToggle = document.querySelector( '.main-navigation__toggle' );
 
     // Scrolling Events
 
@@ -50,7 +49,7 @@ const livelyScripts = () => {
 
     let userBarHeight = 0;
     let timeout = false;
-    const delay = 250;
+    const delay = 150;
 
     onResize();
 
@@ -58,8 +57,11 @@ const livelyScripts = () => {
         getUserBarHeight();
         refreshBodyPaddingTop();
         onScroll(lastKnownScrollPosition);
-        setSearchButtonPosition();
         setBannerImagePosition();
+
+        if (window.innerWidth >= 1200 && mmToggli.getAttribute('aria-expanded') === 'true') {
+            menuToggle.click();
+        }
     }
 
     window.addEventListener('resize', function() {
@@ -75,14 +77,6 @@ const livelyScripts = () => {
     function getUserBarHeight() {
         if (userBar) {
             userBarHeight = userBar.offsetHeight;
-        }
-    }
-
-    function setSearchButtonPosition() {
-        if (window.innerWidth < 1200) {
-            mainHeaderMainBar.insertBefore(mainSearchButton, mainNavigation);
-        } else {
-            mainHeaderMainBar.insertBefore(mainSearchButton, mainHeaderSearch);
         }
     }
 
@@ -113,7 +107,7 @@ const livelyScripts = () => {
     document.addEventListener('click', onDocumentClick, true);
 
     function onDocumentClick(e) {
-        if (e.target == mainSearchButton){
+        if (e.target.classList.contains('main-search-button')){
             mainHeaderSearch.classList.toggle('visible');
             if (mainHeaderSearch.classList.contains('visible')) {
                 mainSearchInput.focus();
