@@ -4,14 +4,13 @@ const livelyScripts = () => {
     const mainHeader = document.querySelector('.main-header');
     const mainHeaderTopBar = document.querySelector('.main-header__top-bar');
     const mainHeaderMainBar = document.querySelector('.main-header__main-bar');
-    const mainHeaderSearch = document.querySelector('.main-header-search');
-    const mainSearchInput = mainHeaderSearch.querySelector('#query');
     const mainBanner = document.querySelector('.main-banner');
     const mainBannerImgWrapper = document.querySelector('.main-banner__image-wrapper');
     const mainBannerImgShape = document.querySelector('.main-banner__image-shape');
     const userBar = document.getElementById('admin-bar');
     const menuDrawer = document.getElementById('menu-drawer');
     const menuToggle = document.querySelector( '.main-navigation__toggle' );
+    let mainHeaderSearch = null;
 
     // Scrolling Events
 
@@ -107,23 +106,31 @@ const livelyScripts = () => {
     document.addEventListener('click', onDocumentClick, true);
 
     function onDocumentClick(e) {
-        if (e.target.classList.contains('main-search-button')){
-            mainHeaderSearch.classList.toggle('visible');
-            if (mainHeaderSearch.classList.contains('visible')) {
-                mainSearchInput.focus();
+        if (e.target.classList.contains('main-search-button')) {
+            const nextSibling = e.target.nextElementSibling;
+            if (nextSibling && nextSibling.classList.contains('main-header-search')) {
+                mainHeaderSearch = nextSibling;
+                mainHeaderSearch.classList.toggle('visible');
+                if (mainHeaderSearch.classList.contains('visible')) {
+                    const mainSearchInput = mainHeaderSearch.querySelector('#query');
+                    mainSearchInput.focus();
+                    document.addEventListener('focusin', onFocusInOutside, true);
+                } else {
+                    document.removeEventListener('focusin', onFocusInOutside, true);
+                }
             }
-        } else if (!mainHeaderSearch.contains(e.target)){
+        } else if (mainHeaderSearch && !mainHeaderSearch.contains(e.target)) {
             mainHeaderSearch.classList.remove('visible');
+            document.removeEventListener('focusin', onFocusInOutside, true);
         }
     }
 
-    mainHeaderSearch.addEventListener('focusout', (e) => {
-        setTimeout(() => {
-            if (!mainHeaderSearch.contains(document.activeElement)) {
-                mainHeaderSearch.classList.remove('visible');
-            }
-        }, 0);
-    });
+    function onFocusInOutside(e) {
+        if (mainHeaderSearch && !mainHeaderSearch.contains(e.target)) {
+            mainHeaderSearch.classList.remove('visible');
+            document.removeEventListener('focusin', onFocusInOutside, true);
+        }
+    }
 }
 
 if (document.readyState === 'loading') {
