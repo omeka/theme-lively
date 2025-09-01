@@ -7,14 +7,20 @@
     .notice {
         align-items: flex-start;
         padding: 1rem;
-        width: 50%;
+
+        @media (min-width: $xl) {
+            width: 50%;
+        }
+    }
+
+    .notice-name {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-bottom: 10px;
     }
 
     .local-contexts-notice {
         width: auto;
-    }
-
-    .language {
-        margin-left: 10px;
     }
 }
