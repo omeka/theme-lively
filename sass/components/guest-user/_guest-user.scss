@@ -1,0 +1,19 @@
+div.guest-user-widget {
+    border: 1px dashed $color__gray-58;
+    border-radius: 20px 0;
+    padding: 20px 25px;
+    margin: 0 0 1.5em 0;
+    width: 100%;
+
+    @media (min-width: $xl) {
+        width: 49%;
+
+        &:last-child {
+            margin-left: 2%;
+        }
+    }
+
+    .guest-user-widget-label {
+        border-bottom: 1px solid $color__hr;
+    }
+}

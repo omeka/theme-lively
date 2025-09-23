@@ -1,4 +1,8 @@
-<nav class="pagination" role="navigation">
+<?php
+if ($this->pageCount > 1):
+    $getParams = $_GET;
+?>
+<nav <?php echo tag_attributes($attrs); ?>>
     <?php if ($this->totalItemCount) : ?>
 
         <?php
@@ -46,3 +50,5 @@
         <?php echo $this->translate('0 results'); ?>
     <?php endif; ?>
 </nav>
+
+<?php endif; ?>
