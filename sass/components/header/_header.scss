@@ -9,6 +9,11 @@
     border-top: 5px solid $color__secondary;
     transition: top 0.3s ease-out;
 
+    #admin-bar {
+        position: relative;
+        z-index: 1;
+    }
+
     &__top-bar {
         background-color: $color__secondary;
         display: none;
