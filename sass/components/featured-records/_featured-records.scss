@@ -13,7 +13,6 @@
             display: flex;
             border: 1px dashed $color__hr;
             border-radius: 20px 0;
-            flex: 1;
             gap: 30px;
             margin-bottom: 0;
             overflow: hidden;
@@ -21,6 +20,10 @@
 
             @media(min-width: $sm) {
                 padding: 20px;
+            }
+
+            @media(min-width: $lg) {
+                flex: 1;
             }
 
             &__thumbnail {
