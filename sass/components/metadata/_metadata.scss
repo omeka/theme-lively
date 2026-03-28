@@ -112,3 +112,22 @@
         width: 100%;
     }
 }
+
+.files {
+    #sidebar > div {
+        &:not(:last-of-type) {
+            border-bottom: 1px solid $color__hr;
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+        }
+
+        .element {
+            margin-bottom: 1rem;
+
+            h3 {
+                font-size: $font__h3-sm-size;
+                margin-bottom: 0.5rem;
+            }
+        }
+    }
+}
