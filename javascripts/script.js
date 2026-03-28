@@ -58,7 +58,7 @@ const livelyScripts = () => {
         onScroll(lastKnownScrollPosition);
         setBannerImagePosition();
 
-        if (window.innerWidth >= 1200 && mmToggli.getAttribute('aria-expanded') === 'true') {
+        if (window.innerWidth >= 1200 && menuToggle.getAttribute('aria-expanded') === 'true') {
             menuToggle.click();
         }
     }
@@ -113,7 +113,9 @@ const livelyScripts = () => {
                 mainHeaderSearch.classList.toggle('visible');
                 if (mainHeaderSearch.classList.contains('visible')) {
                     const mainSearchInput = mainHeaderSearch.querySelector('#query');
-                    mainSearchInput.focus();
+                    if (mainSearchInput) {
+                        mainSearchInput.focus();
+                    }
                     document.addEventListener('focusin', onFocusInOutside, true);
                 } else {
                     document.removeEventListener('focusin', onFocusInOutside, true);
