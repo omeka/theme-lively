@@ -48,9 +48,12 @@
         :root {
             --primary: ' . $primaryColor . ';
             --primary-dark: ' . lively_shade_color($primaryColor, -10) . ';
+            --primary-contrast: ' . lively_contrast_color($primaryColor, ['#333', '#fff', '#000']) . ';
             --secondary: ' . $secondaryColor . ';
             --secondary-dark: ' . lively_shade_color($secondaryColor, -10) . ';
+            --secondary-contrast: ' . lively_contrast_color($secondaryColor, ['#333', '#fff', '#000']) . ';
             --accent: ' . $accentColor . ';
+            --accent-dark: ' . lively_shade_color($accentColor, -10) . ';
             --complementary: ' . $complementaryColor . ';
         }'
 
@@ -72,10 +75,10 @@
 </head>
 <?php echo body_tag(array('id' => @$bodyid, 'class' => @$bodyclass)); ?>
     
-    <a id="skipnav" href="#main-content"><?php echo __('Skip to main content'); ?></a>
+    <a id="skipnav" href="#content"><?php echo __('Skip to main content'); ?></a>
 
     <?php echo $this->partial('common/partials/main-header.php'); ?>
     <?php echo $this->partial('common/partials/banner.php'); ?>
 
-    <div id="main-content" class="container" role="main" tabindex="-1">
+    <div id="content" class="container" role="main" tabindex="-1">
     <?php fire_plugin_hook('public_content_top', array('view'=>$this)); ?>

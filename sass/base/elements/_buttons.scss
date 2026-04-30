@@ -46,7 +46,7 @@ button.remove-value {
     border: 1px solid $color__hr;
     border-radius: 50%;
     cursor: pointer;
-    color: $color__primary;
+    color: $color__buttons;
     width: 35px;
     height: 35px;
     padding: 5px 9px;
@@ -57,8 +57,8 @@ button.remove-value {
 
     &:hover,
     &:focus {
-        background-color: $color__primary !important;
-        color: $color__white;
+        background-color: $color__buttons !important;
+        color: $color__buttons-contrast;
     }
 }
 

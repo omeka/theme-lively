@@ -441,3 +441,97 @@ function lively_get_svg($name)
     $filePath = physical_path_to("images/{$name}.svg");
     return file_get_contents($filePath, null);
 }
+
+/**
+ * Returns the most appropriate contrasting color for a given base color.
+ *
+ * Colors in $colorList are evaluated in order. The first color that meets
+ * $minRatio is returned immediately, so list order encodes preference.
+ * If no color meets $minRatio, the highest-contrast color is returned as
+ * a fallback.
+ *
+ * Contrast is calculated per the WCAG relative luminance formula. WCAG AA
+ * requires 4.5:1 for normal text and 3:1 for large text or UI components.
+ *
+ * @param string $baseColor The background color in hex format (e.g., "#ffffff").
+ * @param array $colorList Hex colors to choose from, in preference order.
+ * @param float $minRatio Minimum WCAG contrast ratio. Default 4.5 (AA normal text).
+ * @return string The hex color code of the selected color.
+ */
+function lively_contrast_color(string $baseColor, array $colorList, float $minRatio = 4.5): string
+{
+    $baseRgb = hexToRgb($baseColor);
+    $bestContrast = 0;
+    $bestColor = '';
+
+    foreach ($colorList as $color) {
+        $colorRgb = hexToRgb($color);
+        $contrast = calculateContrast($baseRgb, $colorRgb);
+
+        if ($contrast >= $minRatio) {
+            return $color; // first preferred color that passes.
+        }
+
+        if ($contrast > $bestContrast) {
+            $bestContrast = $contrast;
+            $bestColor = $color;
+        }
+    }
+
+    return $bestColor; // best available if none pass.
+}
+
+/**
+ * Converts a hex color to an RGB array.
+ *
+ * @param string $hex The hex color code.
+ * @return array An array with keys 'r', 'g', and 'b'.
+ */
+function hexToRgb(string $hex): array
+{
+    $hex = ltrim($hex, '#');
+    if (strlen($hex) === 3) {
+        $hex = $hex[0] . $hex[0] . $hex[1] . $hex[1] . $hex[2] . $hex[2];
+    }
+
+    return [
+        'r' => hexdec(substr($hex, 0, 2)),
+        'g' => hexdec(substr($hex, 2, 2)),
+        'b' => hexdec(substr($hex, 4, 2)),
+    ];
+}
+
+/**
+ * Calculates the contrast ratio between two RGB colors.
+ *
+ * @param array $rgb1 The first RGB color.
+ * @param array $rgb2 The second RGB color.
+ * @return float The contrast ratio.
+ */
+function calculateContrast(array $rgb1, array $rgb2): float
+{
+    $l1 = relativeLuminance($rgb1);
+    $l2 = relativeLuminance($rgb2);
+
+    if ($l1 > $l2) {
+        return ($l1 + 0.05) / ($l2 + 0.05);
+    }
+
+    return ($l2 + 0.05) / ($l1 + 0.05);
+}
+
+/**
+ * Calculates the relative luminance of an RGB color.
+ *
+ * @param array $rgb The RGB color.
+ * @return float The relative luminance.
+ */
+function relativeLuminance(array $rgb): float
+{
+    $rgb = array_map(function ($value) {
+        $value = $value / 255;
+        return $value <= 0.04045 ? $value / 12.92 : pow(($value + 0.055) / 1.055, 2.4);
+    }, $rgb);
+
+    return 0.2126 * $rgb['r'] + 0.7152 * $rgb['g'] + 0.0722 * $rgb['b'];
+}

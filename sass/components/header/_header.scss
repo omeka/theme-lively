@@ -28,7 +28,7 @@
             justify-content: space-between;
             padding-top: 10px;
             padding-bottom: 10px;
-            color: $color__white;
+            color: $color__secondary-contrast;
 
             @media (min-width: $lg) {
                 align-items: flex-end;
@@ -36,7 +36,7 @@
             }
 
             a {
-                color: $color__white;
+                color: $color__secondary-contrast;
                 text-decoration: none;
             }
 

@@ -69,7 +69,7 @@
                 background-position: center;
                 background-size: cover;
                 border: none;
-                color: $color__white;
+                color: $color__secondary-contrast;
                 flex-wrap: wrap;
                 justify-content: center;
                 position: relative;
@@ -96,13 +96,13 @@
                 }
     
                 a:not(.record-tag) {
-                    color: $color__white;
+                    color: $color__secondary-contrast;
     
                     &:visited,
                     &:hover,
                     &:focus,
                     &:active {
-                        color: $color__white;
+                        color: $color__secondary-contrast;
                     }
                 }
             }

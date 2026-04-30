@@ -52,7 +52,7 @@
 
         &.layout-carousel {
             a[class*="jcarousel-control-"] {
-                background-color: $color__white;
+                background-color: $color__primary-contrast;
                 border: 1px solid $color__hr;
                 color: $color__primary;
                 width: 40px;
@@ -63,10 +63,12 @@
                 font-size: 2rem;
                 text-shadow: none;
                 transition: all .3s ease;
+                line-height: 1;
+                padding-bottom: 4px;
 
                 &:hover {
                     background-color: $color__primary;
-                    color: $color__white;
+                    color: $color__primary-contrast;
                 }
             }
 
@@ -76,6 +78,10 @@
 
             .jcarousel-control-next {
                 padding-left: 3px;
+            }
+
+            .jcarousel-pagination a.active {
+                background-color: $color__primary;
             }
         }
     }

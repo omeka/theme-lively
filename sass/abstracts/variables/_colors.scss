@@ -1,8 +1,10 @@
 // Colors
 $color__primary: var(--primary);
 $color__primary-dark: var(--primary-dark);
+$color__primary-contrast: var(--primary-contrast);
 $color__secondary: var(--secondary);
 $color__secondary-dark: var(--secondary-dark);
+$color__secondary-contrast: var(--secondary-contrast);
 $color__accent: var(--accent);
 $color__complementary: var(--complementary);
 $color__success: #00a658;
@@ -30,6 +32,8 @@ $color__headings: $color__black;
 $color__main-text: $color__gray-40;
 $color__secondary-text: $color__gray-46;
 $color__buttons: $color__primary;
+$color__buttons-dark: $color__primary-dark;
+$color__buttons-contrast: $color__primary-contrast;
 $color__icons: $color__primary;
 $color__link: $color__accent;
 $color__menu-drawer: $color__white;
