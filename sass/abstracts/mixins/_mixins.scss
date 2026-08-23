@@ -62,11 +62,6 @@
         color: $color__buttons-contrast;
     }
     
-    &:focus {
-        outline: 5px auto Highlight;
-        color: $color__buttons-contrast;
-    }
-    
     &:disabled,
     &[disabled]
     &.disabled {
@@ -89,10 +84,6 @@
         background-color: $color__white;
         border: 1px solid $color__buttons-dark;
         color: $color__buttons-dark;
-    }
-    
-    &:focus {
-        outline: 5px auto Highlight;
     }
     
     &:disabled,

@@ -24,10 +24,6 @@ select {
     text-overflow: ellipsis;
     width: 100%;
 
-    &:focus {
-        
-    }
-
     &::placeholder {
         color: $color__placeholder;
     }
