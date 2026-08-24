@@ -55,7 +55,7 @@ $imageInlineStyles = "object-position: {$bannerHorizontalPosition} {$bannerVerti
                     <p class="main-banner__description"><?php echo html_escape($bannerDescription); ?></p>
                 <?php endif; ?>
                 <?php if($bannerButtonLink) : ?>
-                    <a class="button" target="_blank" href="<?php echo $bannerButtonLink; ?>"><?php echo $bannerButtonLabel; ?></a>
+                    <a class="button" target="_blank" href="<?php echo html_escape($bannerButtonLink); ?>"><?php echo html_escape($bannerButtonLabel); ?></a>
                 <?php endif; ?>
             </div>
         </div>
