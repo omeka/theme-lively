@@ -4,7 +4,7 @@
     <?php echo $this->partial('common/partials/top-header.php'); ?>
 
     <div class="main-header__main-bar container">
-        <div class="main-header__site-title">
+        <div id="site-title" class="main-header__site-title">
             <?php if (get_theme_option('Logo')) : ?>
                 <?php $site_logo = theme_logo(); ?>
             <?php else : ?>
