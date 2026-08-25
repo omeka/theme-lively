@@ -28,12 +28,8 @@ echo head(array('title' => $pageTitle, 'bodyclass' => 'collections browse'));
 
     <?php if ($total_results > 0) : ?>
 
-        <?php
-        $sortLinks[__('Title')] = 'Dublin Core,Title';
-        $sortLinks[__('Date Added')] = 'added';
-        ?>
         <div id="sort-links">
-            <span class="sort-label"><?php echo __('Sort by: '); ?></span><?php echo browse_sort_links($sortLinks); ?>
+            <span class="sort-label"><?php echo __('Sort by: '); ?></span><?php echo browse_sort_links_for('collections'); ?>
         </div>
 
     <?php endif; ?>
