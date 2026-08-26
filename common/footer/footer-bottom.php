@@ -13,7 +13,7 @@ if ( get_theme_option( 'footer_terms_link' ) || get_theme_option( 'footer_privac
             <?php if ( $copyright = get_theme_option( 'footer_copyright' ) ) : ?>
                 <?php echo $copyright; ?>
             <?php else: ?>
-                <?php echo $this->translate( 'Powered by Omeka S' ); ?>
+                <?php echo $this->translate( 'Powered by Omeka' ); ?>
             <?php endif; ?>
         </div>
 

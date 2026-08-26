@@ -62,7 +62,7 @@ foreach ( $socialNetworks as $social_network ) {
             
                 <div class="main-footer__col2">
                     <?php if ( $footerMenuTitle ) : ?>
-                        <h2 class="main-footer__heading"><?php echo $footerMenuTitle; ?></h2>
+                        <h2 class="main-footer__heading"><?php echo html_escape($footerMenuTitle); ?></h2>
                     <?php endif; ?>
 
                     <?php echo public_nav_main(); ?>
@@ -75,7 +75,7 @@ foreach ( $socialNetworks as $social_network ) {
 
                 <div class="main-footer__col3">
                     <?php if ( $footerContentTitle ) : ?>
-                        <h2 class="main-footer__heading"><?php echo $footerContentTitle; ?></h2>
+                        <h2 class="main-footer__heading"><?php echo html_escape($footerContentTitle); ?></h2>
                     <?php endif; ?>
 
                     <?php if ( $footerContent ) : ?>
@@ -93,7 +93,7 @@ foreach ( $socialNetworks as $social_network ) {
         <div class="main-footer__social-network container">
             <?php foreach ( $socialNetworks as $social_network ) : ?>
                 <?php if ( $social_network_url = get_theme_option( "{$social_network}_url" ) ) : ?>
-                    <a href="<?php echo $social_network_url; ?>">
+                    <a href="<?php echo html_escape($social_network_url); ?>">
                         <img src="<?php echo img("{$social_network}.svg"); ?>"
                              alt="<?php echo html_escape($social_network); ?>">
                     </a>
