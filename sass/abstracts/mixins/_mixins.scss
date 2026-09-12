@@ -57,7 +57,9 @@
     border: none;
     color: $color__buttons-contrast;
     
-    &:hover:not(.disabled) {
+    &:hover:not(.disabled),
+    &:focus:not(.disabled),
+    &:active:not(.disabled) {
         background-color: $color__buttons-dark;
         color: $color__buttons-contrast;
     }
@@ -80,7 +82,9 @@
     border: 1px solid $color__buttons;
     color: $color__buttons;
     
-    &:hover:not(.disabled) {
+    &:hover:not(.disabled),
+    &:focus:not(.disabled),
+    &:active:not(.disabled) {
         background-color: $color__white;
         border: 1px solid $color__buttons-dark;
         color: $color__buttons-dark;
