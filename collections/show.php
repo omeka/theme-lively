@@ -37,7 +37,7 @@ $altText = ($imageFile && !empty($imageFile->alt_text)) ? $imageFile->alt_text :
                 <?php if ($totalItems > 0) : ?>
                     <ul class="resources resource-list">
                         <?php foreach (loop('items') as $item): ?>
-                            <?php echo $this->partial('items/single.php', array('item' => $item, 'isGrid' => false)); ?>
+                            <?php echo $this->partial('items/single.php', array('item' => $item, 'isGrid' => false, 'headingLevel' => 3)); ?>
                         <?php endforeach; ?>
                     </ul>
                     <?php echo link_to_items_browse(__(plural('View item', 'View all %s items', $totalItems), $totalItems), array('collection' => metadata('collection', 'id')), array('class' => 'view-items-link')); ?>

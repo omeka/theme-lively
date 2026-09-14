@@ -340,10 +340,11 @@ function lively_random_featured_record_ids($recordType, $limit)
  * @param string $recordType The record type.
  * @param object $recordID The record ID. If null, it will be a random one.
  * @param bool   $primary If the featured record will be rendered in the primary region.
+ * @param int    $headingLevel The heading level for the record title.
  * 
  * @return string
  */
-function lively_featured_record_html($recordType, $recordID = null, $primary = false)
+function lively_featured_record_html($recordType, $recordID = null, $primary = false, $headingLevel = 3)
 {
     if (!$recordType) {
         return;
@@ -371,7 +372,8 @@ function lively_featured_record_html($recordType, $recordID = null, $primary = f
         $recordType => $recordID,
         'thumbnailSize' => $thumbnailSize,
         'featured' => 'featured',
-        'primary' => $primary
+        'primary' => $primary,
+        'headingLevel' => $headingLevel
         )
     );
     
@@ -387,10 +389,11 @@ function lively_featured_record_html($recordType, $recordID = null, $primary = f
  *
  * @param string $type  The Record type (item, collection, exhibit).
  * @param int    $count Maximum number of recent collections to show.
+ * @param int    $headingLevel The heading level for the record titles.
  *
  * @return string
  */
-function lively_recent_records($type, $count = 4)
+function lively_recent_records($type, $count = 4, $headingLevel = 3)
 {
     if (!$type) {
         return;
@@ -417,7 +420,7 @@ function lively_recent_records($type, $count = 4)
     if ($records) {
         $html = '';
         foreach ($records as $record) {
-            $html .= get_view()->partial($recordDict[$type]['single_partial'], array($type => $record));
+            $html .= get_view()->partial($recordDict[$type]['single_partial'], array($type => $record, 'headingLevel' => $headingLevel));
             release_object($record);
         }
     } else {

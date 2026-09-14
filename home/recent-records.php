@@ -18,6 +18,8 @@ for ($i=0; $i < 3; $i++) {
             $recent_records_count = (int) $recent_records_count;
         }
 
+        $heading_level = $recent_title ? 3 : 2;
+
         if ($recent_records_count) {
         ?>
             <section class="recent-records recent-<?php echo $recent_type . 's'; ?>-section">
@@ -30,7 +32,7 @@ for ($i=0; $i < 3; $i++) {
                     <div class="resources resource-grid">
                         <div class="grid-sizer"></div>
                         <div class="gutter-sizer"></div>
-                        <?php echo lively_recent_records($recent_type, $recent_records_count); ?>
+                        <?php echo lively_recent_records($recent_type, $recent_records_count, $heading_level); ?>
                     </div>
                     <?php if (total_records($recent_type) > 1) : ?>
                         <p class="view-<?php echo $recent_type . 's'; ?>-link textcenter">

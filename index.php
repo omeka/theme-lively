@@ -12,7 +12,11 @@ $homepage_text = get_theme_option('homepage_text') ?? '';
 
 <?php echo head(array('bodyid' => 'home')); ?>
 
-<h1><?php echo $homepage_title;  ?></h1>
+<?php if ($homepage_title) : ?>
+    <h1><?php echo $homepage_title; ?></h1>
+<?php else : ?>
+    <h1 class="sr-only"><?php echo __('Home'); ?></h1>
+<?php endif; ?>
 
 <?php if ($homepage_text) : ?>
     <section id="intro">

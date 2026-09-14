@@ -4,6 +4,7 @@
  */
 
 $isGrid = $isGrid ?? false;
+$headingLevel = $headingLevel ?? 2;
 $excludeTag = $excludeTag ?? '';
 $primary = $primary ?? false;
 $title = metadata($collection, 'display_title');
@@ -34,7 +35,7 @@ if ($primary) {
         <?php echo lively_record_tags($collection, '', $excludeTag); ?>
         <!-- Metadata -->
         <div class="resource__meta <?php echo ($isGrid) ? '' : 'media-object-section'; ?>">
-            <h3 class="resource__heading"><?php echo link_to($collection, 'show', $title); ?></h3>
+            <h<?php echo $headingLevel; ?> class="resource__heading"><?php echo link_to($collection, 'show', $title); ?></h<?php echo $headingLevel; ?>>
             <?php if ($description) : ?>
                 <p class="description <?php echo $truncateDesc; ?>"><?php echo $description; ?></p>
             <?php endif; ?>

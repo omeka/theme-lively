@@ -28,6 +28,7 @@ foreach ($total_records as $key => $value ) {
 }
 
 $featured_records = false;
+$heading_level = $homepage_featured_title ? 3 : 2;
 
 foreach ($featured_record_types as $featured_record_type) {
     if ($record_ids[$featured_record_type]) {
@@ -49,7 +50,7 @@ foreach ($featured_record_types as $featured_record_type) {
             <?php if ($record_ids[$featured_record_types[0]]) : ?>
                 <!-- Featured Records - Primary -->
                 <div class="featured featured--primary">
-                    <?php echo lively_featured_record_html($featured_record_types[0], $record_ids[$featured_record_types[0]][0], true); ?>
+                    <?php echo lively_featured_record_html($featured_record_types[0], $record_ids[$featured_record_types[0]][0], true, $heading_level); ?>
                     <?php array_shift($record_ids[$featured_record_types[0]]); ?>
                 </div>
             <?php endif; ?>
@@ -59,13 +60,13 @@ foreach ($featured_record_types as $featured_record_type) {
 
                 <?php if ($record_ids[$featured_record_types[1]]) : ?>
                     <!-- Featured Record -->
-                    <?php echo lively_featured_record_html($featured_record_types[1], $record_ids[$featured_record_types[1]][0]); ?>
+                    <?php echo lively_featured_record_html($featured_record_types[1], $record_ids[$featured_record_types[1]][0], false, $heading_level); ?>
                     <?php array_shift($record_ids[$featured_record_types[1]]); ?>
                 <?php endif; ?>
 
                 <?php if ($record_ids[$featured_record_types[2]]) : ?>
                     <!-- Featured Record -->
-                    <?php echo lively_featured_record_html($featured_record_types[2], $record_ids[$featured_record_types[2]][0]); ?>
+                    <?php echo lively_featured_record_html($featured_record_types[2], $record_ids[$featured_record_types[2]][0], false, $heading_level); ?>
                 <?php endif; ?>
 
             </div>

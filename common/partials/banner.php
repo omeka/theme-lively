@@ -49,7 +49,7 @@ $imageInlineStyles = "object-position: {$bannerHorizontalPosition} {$bannerVerti
 
             <div class="main-banner__content">
                 <?php if($bannerHeading) : ?>
-                    <h2 class="main-banner__heading"><?php echo html_escape($bannerHeading); ?></h2>
+                    <p class="main-banner__heading"><?php echo html_escape($bannerHeading); ?></p>
                 <?php endif; ?>
                 <?php if($bannerDescription) : ?>
                     <p class="main-banner__description"><?php echo html_escape($bannerDescription); ?></p>

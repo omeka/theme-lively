@@ -104,8 +104,12 @@
     }
 
     &__heading {
+        color: $color__headings;
+        font-family: $font__headings;
         font-size: $font__h1-sm-size;
+        font-weight: 800;
         line-height: 1.16;
+        margin-top: 0;
         margin-bottom: 1rem;
 
         @media (min-width: $xl) {
