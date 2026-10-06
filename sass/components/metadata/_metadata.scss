@@ -5,6 +5,10 @@
         width: auto;
     }
 
+    h2:not(.resource__heading) {
+        font-size: $font__h3-sm-size;
+    }
+
     > div:not(:last-child),
     .media-render:not(:last-child) {
         margin-bottom: 2rem;
