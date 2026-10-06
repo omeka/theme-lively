@@ -28,7 +28,7 @@ $imageInlineStyles = "object-position: {$bannerHorizontalPosition} {$bannerVerti
 ?>
 
 <?php if ($bannerImage || $hasText) : ?>
-    <div role="banner" class="<?php echo implode(' ', $class); ?>" style="<?php echo $bannerInlineStyles; ?>">
+    <aside class="<?php echo implode(' ', $class); ?>"<?php echo ($bannerHeading) ? ' aria-labelledby="banner-heading"' : ''; ?> style="<?php echo $bannerInlineStyles; ?>">
         <div class="container main-banner__container main-banner__container--<?php echo $bannerContentPosition; ?>">
             <?php if ( $bannerImage ) : ?>
                 <div class="main-banner__image-wrapper">
@@ -49,7 +49,7 @@ $imageInlineStyles = "object-position: {$bannerHorizontalPosition} {$bannerVerti
 
             <div class="main-banner__content">
                 <?php if($bannerHeading) : ?>
-                    <p class="main-banner__heading"><?php echo html_escape($bannerHeading); ?></p>
+                    <h2 id="banner-heading" class="main-banner__heading"><?php echo html_escape($bannerHeading); ?></h2>
                 <?php endif; ?>
                 <?php if($bannerDescription) : ?>
                     <p class="main-banner__description"><?php echo html_escape($bannerDescription); ?></p>
@@ -59,5 +59,5 @@ $imageInlineStyles = "object-position: {$bannerHorizontalPosition} {$bannerVerti
                 <?php endif; ?>
             </div>
         </div>
-    </div>
+    </aside>
 <?php endif; ?>
