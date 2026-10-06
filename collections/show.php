@@ -9,9 +9,9 @@ if ($decoration) {
 $collectionTitle = metadata('collection', 'display_title');
 $totalItems = metadata('collection', 'total_items');
 
-$title = metadata($collection, 'display_title');
 $imageFile = $collection->getFile();
-$altText = ($imageFile && !empty($imageFile->alt_text)) ? $imageFile->alt_text : $title;
+$altText = ($imageFile && !empty($imageFile->alt_text)) ? $imageFile->alt_text : metadata('collection', 'display_title', array('no_escape' => true));
+$recordImage = record_image($collection, 'fullsize', ['alt' => $altText]);
 ?>
 
 <?php echo head(array('title' => $collectionTitle, 'bodyclass' => 'collections show')); ?>
@@ -20,11 +20,13 @@ $altText = ($imageFile && !empty($imageFile->alt_text)) ? $imageFile->alt_text :
 <h1><?php echo metadata('collection', 'rich_title', array('no_escape' => true)); ?></h1>
 
 <div class="regions-container">
+    <?php if ($recordImage): ?>
     <div class="sidebar-region sidebar-region--left">
         <div class="metadata <?php echo $decorationClass; ?>">
-            <?php echo record_image($collection, 'fullsize', ['alt' => $altText]); ?>
+            <?php echo $recordImage; ?>
         </div>
     </div>
+    <?php endif; ?>
 
     <div class="main-region">
         <div class="metadata">
@@ -35,11 +37,11 @@ $altText = ($imageFile && !empty($imageFile->alt_text)) ? $imageFile->alt_text :
                 <h2><?php echo __('Collection Items'); ?></h2>
 
                 <?php if ($totalItems > 0) : ?>
-                    <ul class="resources resource-list">
+                    <div class="resources resource-list">
                         <?php foreach (loop('items') as $item): ?>
                             <?php echo $this->partial('items/single.php', array('item' => $item, 'isGrid' => false, 'headingLevel' => 3)); ?>
                         <?php endforeach; ?>
-                    </ul>
+                    </div>
                     <?php echo link_to_items_browse(__(plural('View item', 'View all %s items', $totalItems), $totalItems), array('collection' => metadata('collection', 'id')), array('class' => 'view-items-link')); ?>
                 <?php else: ?>
                     <p><?php echo __("There are currently no items within this collection."); ?></p>

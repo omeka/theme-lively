@@ -11,7 +11,8 @@ if ($decoration) {
 
 $title = metadata('item', 'display_title');
 $imageFile = $item->getFile(0);
-$altText = ($imageFile && !empty($imageFile->alt_text)) ? $imageFile->alt_text : $title;
+$altText = ($imageFile && !empty($imageFile->alt_text)) ? $imageFile->alt_text : metadata('item', 'display_title', array('no_escape' => true));
+$recordImage = record_image($item, 'fullsize', ['alt' => $altText]);
 echo head(array('title' => $title, 'bodyclass' => 'items show'));
 ?>
 
@@ -19,11 +20,13 @@ echo head(array('title' => $title, 'bodyclass' => 'items show'));
 <h1><?php echo metadata('item', 'rich_title', array('no_escape' => true)); ?></h1>
 
 <div class="regions-container">
+    <?php if ($recordImage): ?>
     <div class="sidebar-region sidebar-region--left">
         <div class="metadata <?php echo $decorationClass; ?>">
-            <?php echo record_image($item, 'fullsize', ['alt' => $altText]);; ?>
+            <?php echo $recordImage; ?>
         </div>
     </div>
+    <?php endif; ?>
 
     <div class="main-region">
         <div class="metadata">

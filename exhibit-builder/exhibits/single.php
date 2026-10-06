@@ -9,7 +9,7 @@ $excludeTag = $excludeTag ?? '';
 $primary = $primary ?? false;
 $exhibitTitle = metadata($exhibit, 'title');
 $imageFile = $exhibit->getFile();
-$altText = ($imageFile && !empty($imageFile->alt_text)) ? $imageFile->alt_text : $exhibitTitle;
+$altText = ($imageFile && !empty($imageFile->alt_text)) ? $imageFile->alt_text : metadata($exhibit, 'title', array('no_escape' => true));
 $exhibitImage = record_image($exhibit, 'fullsize', ['alt' => $altText]);
 $description = metadata($exhibit, 'description', array('no_escape' => true));
 $truncateDesc = get_theme_option('truncate_body_property') ?? 'ellipsis';

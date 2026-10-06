@@ -9,7 +9,7 @@ $excludeTag = $excludeTag ?? '';
 $primary = $primary ?? false;
 $title = metadata($collection, 'display_title');
 $imageFile = $collection->getFile();
-$altText = ($imageFile && !empty($imageFile->alt_text)) ? $imageFile->alt_text : $title;
+$altText = ($imageFile && !empty($imageFile->alt_text)) ? $imageFile->alt_text : metadata($collection, 'display_title', array('no_escape' => true));
 $collectionImage = record_image($collection, 'fullsize', ['alt' => $altText]);
 $description = metadata($collection, array('Dublin Core', 'Description'));
 $contributor = $collection->hasContributor() ? metadata($collection, array('Dublin Core', 'Contributor'), array('all' => true, 'delimiter' => ', ')) : '';
