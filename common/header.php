@@ -30,6 +30,7 @@
     $primaryColor = get_theme_option('primary_color') ?? '#d62d6a';
     $secondaryColor = get_theme_option('secondary_color') ?? '#4D1068';
     $accentColor = get_theme_option('accent_color') ?? '#0a4f9e';
+    $linkColor = get_theme_option('link_color') ?? '#031831';
     $complementaryColor = get_theme_option('complementary_color') ?? '#F0B247';
     ?>
 
@@ -54,6 +55,7 @@
             --secondary-contrast: ' . lively_contrast_color($secondaryColor, ['#333', '#fff', '#000']) . ';
             --accent: ' . $accentColor . ';
             --accent-dark: ' . lively_shade_color($accentColor, -10) . ';
+            --link: ' . $linkColor . ';
             --complementary: ' . $complementaryColor . ';
         }'
 
