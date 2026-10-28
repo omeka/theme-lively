@@ -95,10 +95,12 @@ echo head(array('title' => $title, 'bodyclass' => 'items show'));
                 <div class="element-text"><?php echo metadata('item', 'citation', array('no_escape' => true)); ?></div>
             </div>
 
+            <?php if (get_theme_option('show_output_formats')): ?>
             <div id="item-output-formats" class="element">
                 <h2><?php echo __('Output Formats'); ?></h2>
                 <div class="element-text"><?php echo output_format_list(); ?></div>
             </div>
+            <?php endif; ?>
 
             <?php fire_plugin_hook('public_items_show', array('view' => $this, 'item' => $item)); ?>
         </div>
