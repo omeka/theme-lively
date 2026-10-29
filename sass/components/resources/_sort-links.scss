@@ -1,5 +1,6 @@
 #sort-links {
     align-items: center;
+    flex-wrap: wrap;
 }
 
 #sort-links,
@@ -9,12 +10,15 @@
 }
 
 #sort-links-list {
+    flex-wrap: wrap;
     list-style: none;
     margin-bottom: 0;
     padding-left: 0;
+    row-gap: 5px;
 
     li {
         margin-bottom: 0;
+        margin-left: 0;
     }
 
     li:not(:last-child) {
@@ -23,16 +27,23 @@
     }
 
     a {
+        align-items: center;
+        display: inline-flex;
+        gap: 0.25em;
+        min-height: 24px;
         text-decoration: none;
+        white-space: nowrap;
     }
 
-    .asc a::after {
+    .asc .sort-icon::after {
         @include font-awesome;
         content: "\f161";
+        content: "\f161" / "";
     }
 
-    .desc a::after {
+    .desc .sort-icon::after {
         @include font-awesome;
         content: "\f884";
+        content: "\f884" / "";
     }
 }
