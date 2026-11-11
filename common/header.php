@@ -41,8 +41,16 @@
 
     <!-- Stylesheets -->
     <?php
+    // Preload the Latin webfonts that every page needs.
+    foreach (array('sen-latin') as $font) {
+        get_view()->headLink(array(
+            'rel' => 'preload',
+            'href' => src($font, 'fonts', 'woff2'),
+            'type' => 'font/woff2',
+            'extras' => array('as' => 'font', 'crossorigin' => 'anonymous'),
+        ), 'PREPEND');
+    }
     queue_css_file(array('iconfonts','style'));
-    queue_css_url('//fonts.googleapis.com/css2?family=Sen:wght@400;500;700;800&display=swap');
     
     queue_css_string(
         '

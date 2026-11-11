@@ -1,0 +1,4 @@
+/* Sen
+--------------------------------------------- */
+$sen-subsets: latin-ext latin;
+@include font-face("Sen", "sen", 400 500 700 800, $sen-subsets);
