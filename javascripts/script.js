@@ -68,6 +68,10 @@ const livelyScripts = () => {
         timeout = setTimeout(onResize, delay);
     });
 
+    // Webfonts can change the header's height after the first measurement,
+    // so measure again whenever a batch of fonts finishes loading.
+    document.fonts.addEventListener('loadingdone', onResize);
+
     function refreshBodyPaddingTop() {
         body.style.paddingTop = mainHeader.offsetHeight + 'px';
         document.documentElement.style.scrollPaddingTop = (mainHeaderMainBar.offsetHeight + 20) + 'px';
