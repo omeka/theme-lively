@@ -128,11 +128,16 @@
 
                 .submenu-btn {
                     align-self: center;
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                    min-width: 24px;
+                    min-height: 24px;
                     background-color: transparent;
                     border: none;
                     line-height: 1;
-                    margin-left: -26px;
-                    padding: 3px;
+                    margin: 0 -8px 0 -28px;
+                    padding: 0;
 
                     &::after {
                         @include font-awesome;
