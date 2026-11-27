@@ -11,7 +11,7 @@ $isGrid = $isGrid ?? false;
 $headingLevel = $headingLevel ?? 2;
 $title = $searchText['title'] ? $searchText['title'] : '[Unknown]';
 $imageFile = $record->getFile();
-$altText = ($imageFile && !empty($imageFile->alt_text)) ? $imageFile->alt_text : $title;
+$altText = ($imageFile ? $imageFile->getAltText() : '') ?: $title;
 $recordImage = record_image($recordType, 'square_thumbnail', ['alt' => $altText]);
 
 $class = ['resource'];
@@ -23,7 +23,7 @@ $class[] = strtolower($filter->filter($recordType));
     <!-- Thumbnail -->
     <?php if ($recordImage) : ?>
         <div class="resource__thumbnail">
-            <?php echo link_to($record, 'show', $recordImage, array('class' => 'thumbnail')); ?>
+            <?php echo link_to($record, 'show', $recordImage, array('class' => 'thumbnail', 'tabindex' => '-1', 'aria-hidden' => 'true')); ?>
         </div>
     <?php endif; ?>
 

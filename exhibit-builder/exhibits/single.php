@@ -9,7 +9,7 @@ $excludeTag = $excludeTag ?? '';
 $primary = $primary ?? false;
 $exhibitTitle = metadata($exhibit, 'title');
 $imageFile = $exhibit->getFile();
-$altText = ($imageFile && !empty($imageFile->alt_text)) ? $imageFile->alt_text : metadata($exhibit, 'title', array('no_escape' => true));
+$altText = ($imageFile ? $imageFile->getAltText() : '') ?: metadata($exhibit, 'title', array('no_escape' => true));
 $exhibitImage = record_image($exhibit, 'fullsize', ['alt' => $altText]);
 $description = metadata($exhibit, 'description', array('no_escape' => true));
 $truncateDesc = get_theme_option('truncate_body_property') ?? 'ellipsis';
@@ -25,7 +25,7 @@ if ($primary) {
     <!-- Thumbnail -->
     <?php if ($exhibitImage) : ?>
         <div class="resource__thumbnail">
-            <?php echo exhibit_builder_link_to_exhibit($exhibit, $exhibitImage, array('class' => 'thumbnail')); ?>
+            <?php echo exhibit_builder_link_to_exhibit($exhibit, $exhibitImage, array('class' => 'thumbnail', 'tabindex' => '-1', 'aria-hidden' => 'true')); ?>
         </div>
     <?php endif; ?>
 

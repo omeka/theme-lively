@@ -8,9 +8,9 @@ $filter = new Zend_Filter_Word_CamelCaseToDash;
 
 <h1><?php echo $pageTitle; ?></h1>
 
-<nav class="navigation secondary-nav">
+<div class="navigation secondary-nav">
     <?php echo search_filters(); ?>
-</nav>
+</div>
 
 <?php if ($total_results) : ?>
     <ul class="resources resource-list">
