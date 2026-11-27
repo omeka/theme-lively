@@ -25,20 +25,26 @@ $formAttributes['method'] = 'GET';
             </div>
         </div>
 
+        <?php
+        // If the form has been submitted, retain the number of search
+        // fields used and rebuild the form
+        $search = array();
+        if (isset($_GET['advanced']) && is_array($_GET['advanced'])) {
+            $search = array_filter($_GET['advanced'], 'is_array');
+        }
+        if (!$search) {
+            $search[] = array();
+        }
+        ?>
+        <div id="search-narrow-by-field-alerts" class="screen-reader-text" aria-atomic="true" aria-live="polite">
+            <p><?php echo __('Number of input blocks in "%s":', __('Narrow by Specific Fields')); ?> <span class="count"><?php echo count($search); ?></span></p>
+        </div>
         <div id="search-narrow-by-fields" class="field removable multi-value">
-            <div id="search-narrow-by-field-alerts" class="field-meta">
+            <div class="field-meta">
                 <span id="by-value-label" class="label"><?php echo __('Narrow by Specific Fields'); ?></span>
             </div>
             <div class="inputs">
                 <?php
-                // If the form has been submitted, retain the number of search
-                // fields used and rebuild the form
-                if (!empty($_GET['advanced'])) {
-                    $search = $_GET['advanced'];
-                } else {
-                    $search = array(array('field' => '', 'type' => '', 'value' => ''));
-                }
-
                 //Here is where we actually build the search form
                 //The POST looks like =>
                 // advanced[0] =>
@@ -47,7 +53,7 @@ $formAttributes['method'] = 'GET';
                 //[terms] = 'foobar'
                 //etc
                 foreach ($search as $i => $rows): ?>
-                    <div class="search-entry value" id="search-row-<?php echo $i; ?>" aria-label="<?php echo __('Row %s', $i+1); ?>">
+                    <div class="search-entry value" id="search-row-<?php echo $i; ?>" aria-label="<?php echo __('Input block %s', $i+1); ?>">
                         <label class="sub-label logical-operator">Logical operator
                             <?php 
                             echo $this->formSelect(
@@ -241,7 +247,6 @@ $formAttributes['method'] = 'GET';
 </form>
 
 <?php echo js_tag('items-search'); ?>
-<?php echo js_tag('advanced-search'); ?>
 <script>
     jQuery(document).ready(function () {
         Omeka.Search.activateSearchButtons();
